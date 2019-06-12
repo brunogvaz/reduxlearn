@@ -5,21 +5,34 @@ import AboutPage from "./about/AboutPage";
 import Header from "./common/Header";
 import PageNotFound from "./PageNotFound";
 import CoursesPage from "./courses/CoursesPage";
-import ManageCoursePage from "./courses/ManageCoursePage";
+
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import CardStats from "./cardstats/CardStats";
+import SideNav from "./common/SideNav";
+import TopNavBar from "./common/TopNavBar";
+import PageContent from "./PageContent";
+import Footer from "./common/Footer";
+
+import ListaEmendas from "./listaEmendas/ListaEmendas";
 
 function App() {
   return (
-    <div className="container-fluid">
-      <Header />
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route path="/about" component={AboutPage} />
-        <Route path="/courses" component={CoursesPage} />
-        <Route path="/course/:slug" component={ManageCoursePage} />
-        <Route path="/course" component={ManageCoursePage} />
-        <Route component={PageNotFound} />
-      </Switch>
-    </div>
+    <>
+      <SideNav />
+      <div className="main-content">
+        <TopNavBar />
+
+        <Header />
+        <div className="container-fluid mt--7">
+          
+            <ListaEmendas />
+
+            <Footer/>
+          
+        </div>
+      </div>
+    </>
   );
 }
 
